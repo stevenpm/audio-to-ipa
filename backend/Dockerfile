@@ -14,6 +14,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 WORKDIR /app
 
+# Upgrade pip and install setuptools (required by openai-whisper's build system)
+RUN pip install --no-cache-dir --upgrade pip setuptools
+
 # Install CPU-only PyTorch first (separate layer for caching — ~800MB vs ~2GB GPU wheel)
 RUN pip install --no-cache-dir \
     torch==2.5.1 \
