@@ -1,0 +1,28 @@
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "8000:8000"
+    volumes:
+      # Persist the downloaded Whisper model across rebuilds
+      - whisper-cache:/root/.cache/whisper
+    environment:
+      # Change to "medium" or "large-v3" for higher accuracy (uses more RAM/time)
+      WHISPER_MODEL: small
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 90s   # Allow time for first-run model download (~244 MB)
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "80:80"
+    depends_on:
+      backend:
+        condition: service_healthy
+
+volumes:
+  whisper-cache:
