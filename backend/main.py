@@ -4,10 +4,12 @@ from contextlib import asynccontextmanager
 from pathlib import Path
 
 from fastapi import FastAPI, File, HTTPException, UploadFile
+from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
 from pydub import AudioSegment
 
 import phonemizer_service
+import spellings_service
 import transcriber
 
 ALLOWED_EXTENSIONS = {".mp3", ".wav", ".flac", ".m4a", ".ogg", ".webm"}
@@ -37,6 +39,24 @@ def health():
 @app.get("/languages")
 def languages():
     return {"languages": phonemizer_service.supported_languages()}
+
+
+class SpellingsRequest(BaseModel):
+    ipa: str
+    transcript: str
+
+
+@app.post("/spellings")
+async def get_spellings(req: SpellingsRequest):
+    if not req.ipa or not req.transcript:
+        raise HTTPException(status_code=422, detail="ipa and transcript are required.")
+    try:
+        variants = spellings_service.get_spelling_variants(req.ipa, req.transcript)
+        return {"variants": variants}
+    except RuntimeError as exc:
+        raise HTTPException(status_code=503, detail=str(exc))
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=f"Failed to generate spellings: {exc}")
 
 
 @app.post("/transcribe")

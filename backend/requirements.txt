@@ -4,3 +4,4 @@ faster-whisper==1.1.0
 phonemizer==3.3.0
 pydub==0.25.1
 python-multipart==0.0.18
+anthropic==0.40.0

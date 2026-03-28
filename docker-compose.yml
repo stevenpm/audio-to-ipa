@@ -6,6 +6,8 @@ services:
     volumes:
       # Persist the downloaded Whisper model across rebuilds
       - whisper-cache:/root/.cache/huggingface
+    env_file:
+      - .env
     environment:
       # Change to "medium" or "large-v3" for higher accuracy (uses more RAM/time)
       WHISPER_MODEL: small
