@@ -1,0 +1,351 @@
+.page {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.intro {
+  text-align: center;
+}
+
+.heading {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.subheading {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Chart */
+
+.chartSection {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.chartToggle {
+  width: 100%;
+  text-align: left;
+  padding: 12px 16px;
+  background: transparent;
+  color: var(--accent);
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+
+.chartToggle:hover {
+  background: var(--surface-hover);
+}
+
+.chartWrapper {
+  border-top: 1px solid var(--border);
+  padding: 16px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+}
+
+.chartImg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Drop zone */
+
+.dropzone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 2px dashed var(--border);
+  border-radius: var(--radius);
+  padding: 48px 24px;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.dropzone:hover {
+  border-color: var(--accent);
+  background: var(--surface);
+}
+
+.dropIcon {
+  font-size: 2.5rem;
+}
+
+.dropText {
+  font-size: 1rem;
+  color: var(--text);
+  font-weight: 500;
+}
+
+.dropHint {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.fileInput {
+  display: none;
+}
+
+.errorBox {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: color-mix(in srgb, var(--error) 10%, transparent);
+  border: 1px solid var(--error);
+  border-radius: var(--radius-sm);
+  padding: 12px 16px;
+  color: var(--error);
+  font-size: 0.875rem;
+}
+
+.retryBtn {
+  margin-left: auto;
+  color: var(--accent);
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 4px 12px;
+  font-size: 0.8rem;
+}
+
+/* Decoding state */
+
+.decoding {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 32px;
+}
+
+.previewThumb {
+  max-height: 200px;
+  max-width: 100%;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  object-fit: contain;
+}
+
+.decodingText {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.decodingHint {
+  font-size: 0.8rem;
+  opacity: 0.7;
+}
+
+.spinner {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--border);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Results */
+
+.results {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.resultHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.badge {
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.badgeHigh { background: color-mix(in srgb, var(--success) 20%, transparent); color: var(--success); }
+.badgeMedium { background: color-mix(in srgb, #f0a030 20%, transparent); color: #f0a030; }
+.badgeLow { background: color-mix(in srgb, var(--error) 20%, transparent); color: var(--error); }
+
+.resetBtn {
+  background: transparent;
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 6px 16px;
+  font-size: 0.8rem;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.resetBtn:hover {
+  color: var(--text);
+  border-color: var(--text-muted);
+}
+
+.panels {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.panelHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface-hover);
+}
+
+.panelLabel {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--text-muted);
+  padding: 12px 16px;
+  display: block;
+}
+
+.docImage {
+  width: 100%;
+  display: block;
+  object-fit: contain;
+  max-height: 400px;
+  padding: 8px;
+}
+
+.decodedText {
+  padding: 16px;
+  font-family: 'Noto Serif', Georgia, serif;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--text);
+  white-space: pre-wrap;
+}
+
+.copyBtn {
+  background: transparent;
+  color: var(--accent);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 3px 8px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.copyBtn:hover {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+
+/* Uncertain characters */
+
+.section {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.sectionTitle {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--text-muted);
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface-hover);
+}
+
+.uncertainList {
+  display: flex;
+  flex-direction: column;
+}
+
+.uncertainItem {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.875rem;
+}
+
+.uncertainItem:last-child {
+  border-bottom: none;
+}
+
+.uncertainPos {
+  font-family: 'Noto Serif', Georgia, serif;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.uncertainChosen {
+  color: var(--text);
+}
+
+.uncertainOptions {
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+/* Notes */
+
+.notes {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.notesLabel {
+  font-weight: 600;
+  color: var(--text);
+}

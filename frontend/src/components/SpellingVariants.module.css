@@ -1,0 +1,246 @@
+.wrapper {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 16px;
+  background: transparent;
+  color: var(--accent);
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+
+.trigger:hover {
+  background: var(--surface-hover);
+}
+
+.globe {
+  font-size: 1rem;
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 20px;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.spinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--border);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.heading {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 14px 16px 4px;
+  color: var(--text);
+}
+
+.subheading {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  padding: 0 16px 12px;
+  font-family: 'Noto Serif', Georgia, serif;
+}
+
+.tableWrapper {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+.table thead tr {
+  background: var(--surface-hover);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.table th {
+  text-align: left;
+  padding: 8px 16px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--text-muted);
+}
+
+.table tbody tr {
+  border-bottom: 1px solid var(--border);
+}
+
+.table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.variantRow {
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.variantRow:hover {
+  background: var(--surface-hover);
+}
+
+.variantRow.expanded {
+  background: var(--surface-hover);
+}
+
+.table td {
+  padding: 10px 16px;
+  vertical-align: middle;
+}
+
+.lang {
+  color: var(--text-muted);
+  white-space: nowrap;
+  width: 160px;
+}
+
+.chevron {
+  display: inline-block;
+  margin-right: 6px;
+  font-size: 0.7rem;
+  color: var(--accent);
+}
+
+.spelling {
+  font-family: 'Noto Serif', Georgia, serif;
+  font-size: 1rem;
+  color: var(--text);
+  font-weight: 500;
+}
+
+.notes {
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  font-style: italic;
+}
+
+.copyCell {
+  width: 60px;
+  text-align: right;
+}
+
+.copyBtn {
+  background: transparent;
+  color: var(--accent);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 3px 8px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  transition: background 0.15s, color 0.15s;
+  cursor: pointer;
+}
+
+.copyBtn:hover {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+
+/* Expanded alternatives row */
+
+.altRow {
+  background: var(--bg, #0d0d0d);
+  border-bottom: 1px solid var(--border);
+}
+
+.altCell {
+  padding: 12px 24px 16px 40px !important;
+}
+
+.altLoading {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.altError {
+  color: var(--error);
+  font-size: 0.85rem;
+}
+
+.altList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.altItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.altSpelling {
+  font-family: 'Noto Serif', Georgia, serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text);
+  min-width: 120px;
+}
+
+.altNotes {
+  flex: 1;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.error {
+  color: var(--error);
+  font-size: 0.875rem;
+  padding: 14px 16px 8px;
+}
+
+.retry {
+  margin: 0 16px 14px;
+  background: transparent;
+  color: var(--accent);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 6px 14px;
+  font-size: 0.8rem;
+  transition: background 0.2s;
+}
+
+.retry:hover {
+  background: var(--surface-hover);
+}

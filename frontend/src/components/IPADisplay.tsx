@@ -1,5 +1,6 @@
 import { useRef, useState } from 'react'
 import type { AppStatus, TranscribeResponse } from '../types'
+import SpellingVariants from './SpellingVariants'
 import styles from './IPADisplay.module.css'
 
 interface Props {
@@ -70,6 +71,7 @@ export default function IPADisplay({ result, status, errorMessage }: Props) {
         <Panel label="Transcript" content={result.transcript} />
         <Panel label="IPA" content={result.ipa} />
       </div>
+      <SpellingVariants result={result} />
     </div>
   )
 }

@@ -1,0 +1,30 @@
+.nav {
+  display: flex;
+  gap: 4px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 4px;
+  margin-bottom: 40px;
+}
+
+.tab {
+  flex: 1;
+  padding: 10px 24px;
+  border-radius: calc(var(--radius) - 2px);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  background: transparent;
+  transition: background 0.2s, color 0.2s;
+}
+
+.tab:hover:not(.active) {
+  background: var(--surface-hover);
+  color: var(--text);
+}
+
+.tab.active {
+  background: var(--accent);
+  color: #fff;
+}
