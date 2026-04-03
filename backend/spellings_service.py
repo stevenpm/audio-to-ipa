@@ -73,3 +73,53 @@ Example format:
     raw = raw.strip()
 
     return json.loads(raw)
+
+
+def get_spelling_alternatives(ipa: str, transcript: str, language: str) -> list[dict]:
+    """
+    Given an IPA transcription, original text, and a specific language,
+    return multiple alternative spellings for that language ordered most to least common.
+    """
+    client = _get_client()
+
+    prompt = f"""You are a linguistics expert specializing in phonetics and cross-language name transliteration.
+
+Original text: "{transcript}"
+IPA transcription: {ipa}
+Target language: {language}
+
+Your task: Generate ALL plausible alternative spellings of this word/name as it would be written in {language}, ordered from most common/popular to least common/rare.
+
+Rules:
+- The first spelling should be the most conventional or frequently seen spelling
+- Include at least 3 spellings, up to 8 if genuinely plausible variants exist
+- For languages with non-Latin scripts, provide the native script spelling
+- Keep notes brief (max 8 words)
+- Only include spellings a real person might actually use — no nonsense variants
+
+Respond with a JSON array only, no other text. Each item must have exactly these fields:
+- "spelling": the spelling variant
+- "notes": very brief note on usage or frequency (e.g. "most common", "informal variant", "rare but valid")
+
+Example:
+[
+  {{"spelling": "Jane", "notes": "most common spelling"}},
+  {{"spelling": "Jayne", "notes": "popular variant"}},
+  {{"spelling": "Jain", "notes": "rare variant"}}
+]"""
+
+    message = client.messages.create(
+        model="claude-haiku-4-5-20251001",
+        max_tokens=512,
+        messages=[{"role": "user", "content": prompt}],
+    )
+
+    raw = message.content[0].text.strip()
+
+    if raw.startswith("```"):
+        raw = raw.split("```")[1]
+        if raw.startswith("json"):
+            raw = raw[4:]
+    raw = raw.strip()
+
+    return json.loads(raw)
