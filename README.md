@@ -1,16 +1,19 @@
-# audio-to-ipa
+# ScriptBridge
 
-Convert speech to **International Phonetic Alphabet (IPA)** — upload an audio file or record directly from your microphone.
+## Why ScriptBridge Exists
 
-![screenshot placeholder](docs/screenshot.png)
+Holocaust survivors who can speak firsthand to family names, birthplaces, and histories are in their final years. Researchers and descendants trying to reconstruct those histories — in online databases, digitized records, and physical archives — often hit a wall at names. A surname spelled phonetically by an immigration officer, a village recorded in one language and searched in another, a handwritten entry in old German cursive: small transcription differences can break a search entirely.
 
-## Features
+I built this out of an interest in language and mathematics — in how sound, spelling, and script relate across languages — and it turned into something I hope is actually useful for people doing this kind of research.
 
-- Upload audio files (MP3, WAV, FLAC, M4A, OGG)
-- Record live from the microphone
-- Displays plain-text transcript alongside IPA transcription
-- One-click copy for both transcript and IPA output
-- Supports 30+ languages — language is auto-detected
+## What It Does
+
+ScriptBridge takes spoken audio, typed text, or a photo of a historical document and helps you understand how a name sounds and how it might be spelled across languages:
+
+- **IPA transcription** — converts speech or text to the International Phonetic Alphabet, a universal notation for pronunciation
+- **Spelling variants** — shows how a name or word would be written across dozens of languages and writing systems
+- **Document reader** — extracts text from scanned or photographed historical documents
+- **Sütterlin decoder** — reads the old German cursive script common in 19th and early 20th century records
 
 ## How It Works
 
