@@ -6,7 +6,7 @@ _client: anthropic.Anthropic | None = None
 
 LANGUAGES = [
     "English", "Spanish", "French", "German", "Italian", "Portuguese",
-    "Dutch", "Russian", "Polish", "Greek", "Arabic", "Hindi",
+    "Dutch", "Russian", "Polish", "Greek", "Arabic", "Hebrew", "Hindi",
     "Japanese", "Korean", "Chinese (Mandarin)",
 ]
 

@@ -69,6 +69,92 @@
   font-family: 'Noto Serif', Georgia, serif;
 }
 
+/* Selection bar */
+
+.selectionBar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 16px;
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
+  border-top: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
+}
+
+.selectionCount {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--accent);
+  flex: 1;
+}
+
+.copySelectedBtn {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 5px 14px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  transition: opacity 0.2s;
+}
+
+.copySelectedBtn:hover {
+  opacity: 0.85;
+}
+
+.clearBtn {
+  background: transparent;
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 4px 10px;
+  font-size: 0.8rem;
+  transition: color 0.2s;
+}
+
+.clearBtn:hover {
+  color: var(--text);
+}
+
+/* Checkboxes */
+
+.checkCol {
+  width: 36px;
+}
+
+.checkCell {
+  width: 36px;
+  padding-left: 14px !important;
+}
+
+.checkbox {
+  width: 15px;
+  height: 15px;
+  accent-color: var(--accent);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.copyBtnSm {
+  background: transparent;
+  color: var(--accent);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 2px 6px;
+  font-size: 0.7rem;
+  font-weight: 500;
+  transition: background 0.15s, color 0.15s;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.copyBtnSm:hover {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+
 .tableWrapper {
   overflow-x: auto;
 }

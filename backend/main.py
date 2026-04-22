@@ -32,7 +32,7 @@ async def lifespan(app: FastAPI):
     yield
 
 
-app = FastAPI(title="audio-to-ipa", lifespan=lifespan)
+app = FastAPI(title="ScriptBridge", lifespan=lifespan)
 
 app.add_middleware(
     CORSMiddleware,

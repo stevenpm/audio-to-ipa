@@ -3,10 +3,12 @@
   flex-direction: column;
   align-items: center;
   gap: 16px;
+  height: 100%;
 }
 
 .dropzone {
   width: 100%;
+  flex: 1;
   border: 2px dashed var(--border);
   border-radius: var(--radius);
   padding: 40px 24px;
@@ -14,6 +16,10 @@
   cursor: pointer;
   transition: border-color 0.2s, background 0.2s;
   background: var(--surface);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .dropzone:hover:not(.disabled) {

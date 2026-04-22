@@ -96,7 +96,8 @@ export default function MicRecorder({ onRecordingComplete, status }: Props) {
           disabled={disabled}
         >
           <span className={styles.micIcon}>&#127908;</span>
-          Record from Microphone
+          <span className={styles.recordLabel}>Record from Microphone</span>
+          <span className={styles.recordHint}>Click to start recording</span>
         </button>
       )}
     </div>

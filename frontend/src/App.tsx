@@ -90,9 +90,9 @@ export default function App() {
   return (
     <div className={styles.page}>
       <header className={styles.header}>
-        <h1 className={styles.title}>Audio → IPA</h1>
+        <h1 className={styles.title}>ScriptBridge</h1>
         <p className={styles.subtitle}>
-          Convert speech to International Phonetic Alphabet — upload a file or record live
+          Phonetics, historical documents, and handwriting — decoded
         </p>
       </header>
 
@@ -110,11 +110,13 @@ export default function App() {
               <div className={styles.divider}>
                 <span>or</span>
               </div>
-              <FileUpload onFileSelected={handleFileSelected} status={state.status} />
-              <div className={styles.divider}>
-                <span>or</span>
+              <div className={styles.audioRow}>
+                <FileUpload onFileSelected={handleFileSelected} status={state.status} />
+                <div className={styles.dividerVertical}>
+                  <span>or</span>
+                </div>
+                <MicRecorder onRecordingComplete={handleRecordingComplete} status={state.status} />
               </div>
-              <MicRecorder onRecordingComplete={handleRecordingComplete} status={state.status} />
             </section>
 
             {(state.status !== 'idle') && (
